@@ -1,4 +1,4 @@
-package aquvius.expirementmod.core.registry;
+package aquvius.expirementmod.common.registry;
 
 import aquvius.expirementmod.common.entity.TestmobEntity;
 import aquvius.expirementmod.common.item.ExpirementmodSwordBaseItem;

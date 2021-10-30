@@ -1,7 +1,7 @@
 package aquvius.expirementmod;
 
 import aquvius.expirementmod.client.entity.render.TestmobEntityRenderer;
-import aquvius.expirementmod.core.registry.ExpirementmodEntities;
+import aquvius.expirementmod.common.registry.ExpirementmodEntities;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.eventbus.api.SubscribeEvent;

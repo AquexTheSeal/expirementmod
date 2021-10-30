@@ -1,8 +1,8 @@
 package aquvius.expirementmod;
 
 import aquvius.expirementmod.common.entity.TestmobEntity;
-import aquvius.expirementmod.core.registry.ExpirementmodEntities;
-import aquvius.expirementmod.core.registry.ExpirementmodItems;
+import aquvius.expirementmod.common.registry.ExpirementmodEntities;
+import aquvius.expirementmod.common.registry.ExpirementmodItems;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
@@ -10,6 +10,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import software.bernie.geckolib3.GeckoLib;
 
 @Mod(Expirementmod.MOD_ID)
 public class Expirementmod {
@@ -29,6 +30,8 @@ public class Expirementmod {
 
         // add all required listeners
         bus.addListener(this::setup);
+
+        GeckoLib.initialize();
 
         // register this class through the Minecraft Forge Event Bus
         MinecraftForge.EVENT_BUS.register(this);
