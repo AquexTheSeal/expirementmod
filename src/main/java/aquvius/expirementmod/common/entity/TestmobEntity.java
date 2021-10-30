@@ -1,6 +1,7 @@
 package aquvius.expirementmod.common.entity;
 
 import aquvius.expirementmod.common.entity.ai.AnimatableMeleeGoal;
+import aquvius.expirementmod.common.entity.ai.AnimatableMoveToTargetGoal;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
@@ -58,11 +59,12 @@ public class TestmobEntity extends AnimatableHostileEntity implements IAnimatabl
     @Override
     protected void registerGoals() {
         super.registerGoals();
-        this.goalSelector.addGoal(1, new AnimatableMeleeGoal(this, 48.3, 0.7, 0.8));
-        this.targetSelector.addGoal(2, new HurtByTargetGoal(this));
-        this.goalSelector.addGoal(3, new RandomWalkingGoal(this, 0.8));
-        this.goalSelector.addGoal(4, new LookRandomlyGoal(this));
-        this.targetSelector.addGoal(5, new NearestAttackableTargetGoal(this, PlayerEntity.class, false, false));
+        this.goalSelector.addGoal(3, new LookAtGoal(this, PlayerEntity.class, 24.0F));
+        this.goalSelector.addGoal(2, new AnimatableMoveToTargetGoal(this, 1.6, 8));
+        this.goalSelector.addGoal(2, new AnimatableMeleeGoal(this, 48.3, 0.7, 0.8));
+        this.goalSelector.addGoal(5, new LookRandomlyGoal(this));
+        this.goalSelector.addGoal(7, new SwimGoal(this));
+        this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, PlayerEntity.class, true));
     }
 
     @Override
