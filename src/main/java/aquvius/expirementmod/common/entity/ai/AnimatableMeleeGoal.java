@@ -1,6 +1,6 @@
-package expirementmod.expirementmod.common.entity.ai;
+package aquvius.expirementmod.common.entity.ai;
 
-import expirementmod.expirementmod.common.entity.AnimatableHostileEntity;
+import aquvius.expirementmod.common.entity.AnimatableHostileEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.goal.Goal;
 import net.minecraft.entity.player.PlayerEntity;

@@ -1,4 +1,4 @@
-package expirementmod.expirementmod.common.entity;
+package aquvius.expirementmod.common.entity;
 
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.monster.MonsterEntity;

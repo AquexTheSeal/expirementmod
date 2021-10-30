@@ -1,4 +1,4 @@
-package expirementmod.expirementmod.common.entity;
+package aquvius.expirementmod.common.entity;
 
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.MobEntity;
@@ -33,6 +33,7 @@ public class TestmobEntity extends AnimatableHostileEntity implements IAnimatabl
                 .add(Attributes.ARMOR, 3)
                 .add(Attributes.ATTACK_SPEED, 10)
                 .add(Attributes.ATTACK_DAMAGE, 1)
+                .add(Attributes.ATTACK_KNOCKBACK, 1.0D)
                 .add(Attributes.MAX_HEALTH, 20)
                 .add(Attributes.MOVEMENT_SPEED, 0.25)
                 .add(Attributes.FOLLOW_RANGE, 16D);
