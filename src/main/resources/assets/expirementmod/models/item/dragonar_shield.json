@@ -1,0 +1,14 @@
+{
+  "parent": "expirementmod:item/dragonar_shield_model",
+  "textures": {
+    "layer0": "expirementmod:item/dragonar_shield"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "blocking": 1
+      },
+      "model": "expirementmod:item/dragonar_shield_blocking"
+    }
+  ]
+}

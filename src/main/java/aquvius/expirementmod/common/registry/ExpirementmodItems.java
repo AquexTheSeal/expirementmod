@@ -4,6 +4,7 @@ import aquvius.expirementmod.common.entity.TestmobEntity;
 import aquvius.expirementmod.common.item.ExpirementmodSpawnEggItem;
 import aquvius.expirementmod.common.item.ExpirementmodSwordBaseItem;
 import aquvius.expirementmod.common.item.ExpirementmodFoods;
+import aquvius.expirementmod.common.item.TestShieldItem;
 import net.minecraft.item.*;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
@@ -24,4 +25,7 @@ public class ExpirementmodItems {
 
     // FOOD
     public static final RegistryObject<Item> SAJEVIUS_MEAT = ITEMS.register("sajevius_meat", () -> new Item(new Item.Properties().food(ExpirementmodFoods.SAJEVIUS_MEAT)));
+
+    //OTHER GEAR (SHIELDS / BOWS / CROSSBOWS / ETC. )
+    public static final RegistryObject<Item> DRAGONAR_SHIELD = ITEMS.register("dragonar_shield", () -> new TestShieldItem(new Item.Properties().rarity(Rarity.EPIC).tab(ItemGroup.TAB_MISC)));
 }

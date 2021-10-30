@@ -52,6 +52,11 @@ public class TestmobEntity extends AnimatableHostileEntity implements IAnimatabl
             return PlayState.CONTINUE;
         }
 
+        if (this.dead) {
+            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.testmob.death", true));
+            return PlayState.CONTINUE;
+        }
+
         event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.testmob.idle", true));
         return PlayState.CONTINUE;
     }
