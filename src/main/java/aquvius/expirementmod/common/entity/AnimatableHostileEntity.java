@@ -53,4 +53,6 @@ public abstract class AnimatableHostileEntity extends MonsterEntity implements I
     public void setAttacking(boolean attacking) {
         this.entityData.set(ATTACKING, attacking);
     }
+
+    //protected abstract boolean hurt();
 }

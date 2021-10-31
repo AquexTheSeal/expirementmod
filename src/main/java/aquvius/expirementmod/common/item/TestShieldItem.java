@@ -1,7 +1,6 @@
 package aquvius.expirementmod.common.item;
 
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemTier;
 import net.minecraft.item.ShieldItem;
 import net.minecraft.tags.ItemTags;
 
