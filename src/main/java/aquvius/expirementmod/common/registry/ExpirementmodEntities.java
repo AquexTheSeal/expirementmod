@@ -1,6 +1,7 @@
 package aquvius.expirementmod.common.registry;
 
 import aquvius.expirementmod.Expirementmod;
+import aquvius.expirementmod.common.entity.BufftestmobEntity;
 import aquvius.expirementmod.common.entity.TestmobEntity;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
@@ -16,6 +17,7 @@ public class ExpirementmodEntities {
 
     // ENTITIES
     public static final RegistryObject<EntityType<TestmobEntity>> TESTMOB = ENTITIES.register("testmob", () -> EntityType.Builder.of(TestmobEntity::new, EntityClassification.MONSTER).sized(0.6f, 1.95f).build(new ResourceLocation(Expirementmod.MOD_ID, "testmob").toString()));
+    public static final RegistryObject<EntityType<BufftestmobEntity>> BUFFTESTMOB = ENTITIES.register("bufftestmob", () -> EntityType.Builder.of(BufftestmobEntity::new, EntityClassification.MONSTER).sized(4.8f, 6f).build(new ResourceLocation(Expirementmod.MOD_ID, "bufftestmob").toString()));
 
     // FINAL-STEP REGISTERS
 
