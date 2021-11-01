@@ -12,13 +12,9 @@ import net.minecraft.entity.ai.goal.NearestAttackableTargetGoal;
 import net.minecraft.entity.ai.goal.SwimGoal;
 import net.minecraft.entity.monster.MonsterEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.world.BossInfo;
 import net.minecraft.world.World;
-import net.minecraft.world.server.ServerBossInfo;
 import net.minecraftforge.registries.ForgeRegistries;
 import software.bernie.geckolib3.core.IAnimatable;
 import software.bernie.geckolib3.core.PlayState;
@@ -27,8 +23,6 @@ import software.bernie.geckolib3.core.controller.AnimationController;
 import software.bernie.geckolib3.core.event.predicate.AnimationEvent;
 import software.bernie.geckolib3.core.manager.AnimationData;
 import software.bernie.geckolib3.core.manager.AnimationFactory;
-
-import javax.annotation.Nullable;
 
 public class BufftestmobEntity extends AnimatableHostileEntity implements IAnimatable {
 
@@ -41,23 +35,24 @@ public class BufftestmobEntity extends AnimatableHostileEntity implements IAnima
 
     public static AttributeModifierMap.MutableAttribute setCustomAttributes() {
         return MobEntity.createLivingAttributes()
-                .add(Attributes.ARMOR, 15)
+                .add(Attributes.ARMOR, 8)
+                .add(Attributes.KNOCKBACK_RESISTANCE, 1)
                 .add(Attributes.ATTACK_SPEED, 10)
-                .add(Attributes.ATTACK_DAMAGE, 15)
+                .add(Attributes.ATTACK_DAMAGE, 30)
                 .add(Attributes.ATTACK_KNOCKBACK, 5.0D)
                 .add(Attributes.MAX_HEALTH, 750)
-                .add(Attributes.MOVEMENT_SPEED, 0.25)
-                .add(Attributes.FOLLOW_RANGE, 32D);
+                .add(Attributes.MOVEMENT_SPEED, 0.3)
+                .add(Attributes.FOLLOW_RANGE, 64D);
     }
 
     private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
-        if (event.isMoving()) {
-            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.bufftestmob.walking", true));
+        if (this.getAttacking()) {
+            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.bufftestmob.attack", true));
             return PlayState.CONTINUE;
         }
 
-        if (this.getAttacking()) {
-            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.bufftestmob.attack", true));
+        if (event.isMoving()) {
+            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.bufftestmob.walking", true));
             return PlayState.CONTINUE;
         }
 
@@ -70,7 +65,7 @@ public class BufftestmobEntity extends AnimatableHostileEntity implements IAnima
         super.registerGoals();
         this.goalSelector.addGoal(3, new LookAtGoal(this, PlayerEntity.class, 24.0F));
         this.goalSelector.addGoal(2, new AnimatableMoveToTargetGoal(this, 1.6, 8));
-        this.goalSelector.addGoal(2, new AnimatableMeleeGoal(this, 48.3, 0.7, 0.8));
+        this.goalSelector.addGoal(2, new AnimatableMeleeGoal(this, 48.3, 0.5, 0.6));
         this.goalSelector.addGoal(5, new LookRandomlyGoal(this));
         this.goalSelector.addGoal(7, new SwimGoal(this));
         this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, PlayerEntity.class, true));
@@ -89,6 +84,14 @@ public class BufftestmobEntity extends AnimatableHostileEntity implements IAnima
     @Override
     public void registerControllers(AnimationData data) {
         data.addAnimationController(new AnimationController<>(this, "bufftestmobcontroller", 0, this::predicate));
+    }
+
+    @Override
+    public boolean isPersistenceRequired() {
+        return true;
+    }
+
+    public void Tick () {
     }
 
     @Override

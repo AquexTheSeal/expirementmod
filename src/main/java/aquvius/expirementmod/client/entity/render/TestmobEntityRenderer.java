@@ -1,6 +1,7 @@
 package aquvius.expirementmod.client.entity.render;
 
 import aquvius.expirementmod.Expirementmod;
+import aquvius.expirementmod.common.entity.BufftestmobEntity;
 import aquvius.expirementmod.common.entity.TestmobEntity;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
@@ -32,5 +33,10 @@ public class TestmobEntityRenderer extends GeoEntityRenderer<TestmobEntity> {
     @Override
     public void renderRecursively(GeoBone bone, MatrixStack matrixStack, IVertexBuilder bufferIn, int packedLightIn, int packedOverlayIn, float red, float green, float blue, float alpha) {
         super.renderRecursively(bone, matrixStack, bufferIn, packedLightIn, packedOverlayIn, red, green, blue, alpha);
+    }
+
+    @Override
+    protected float getDeathMaxRotation(TestmobEntity entity) {
+        return 0.0F;
     }
 }

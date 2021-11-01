@@ -38,17 +38,17 @@ public class TestmobEntity extends AnimatableHostileEntity implements IAnimatabl
                 .add(Attributes.ATTACK_KNOCKBACK, 2.0D)
                 .add(Attributes.MAX_HEALTH, 150)
                 .add(Attributes.MOVEMENT_SPEED, 0.25)
-                .add(Attributes.FOLLOW_RANGE, 16D);
+                .add(Attributes.FOLLOW_RANGE, 32D);
     }
 
     private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
-        if (event.isMoving()) {
-            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.testmob.walking", true));
+        if (this.getAttacking()) {
+            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.testmob.attack", true));
             return PlayState.CONTINUE;
         }
 
-        if (this.getAttacking()) {
-            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.testmob.attack", true));
+        if (event.isMoving()) {
+            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.testmob.walking", true));
             return PlayState.CONTINUE;
         }
 
@@ -66,7 +66,7 @@ public class TestmobEntity extends AnimatableHostileEntity implements IAnimatabl
         super.registerGoals();
         this.goalSelector.addGoal(3, new LookAtGoal(this, PlayerEntity.class, 24.0F));
         this.goalSelector.addGoal(2, new AnimatableMoveToTargetGoal(this, 1.6, 8));
-        this.goalSelector.addGoal(2, new AnimatableMeleeGoal(this, 48.3, 0.7, 0.8));
+        this.goalSelector.addGoal(2, new AnimatableMeleeGoal(this, 48.3, 0.5, 0.6));
         this.goalSelector.addGoal(5, new LookRandomlyGoal(this));
         this.goalSelector.addGoal(7, new SwimGoal(this));
         this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, PlayerEntity.class, true));
@@ -85,6 +85,11 @@ public class TestmobEntity extends AnimatableHostileEntity implements IAnimatabl
     @Override
     public void registerControllers(AnimationData data) {
         data.addAnimationController(new AnimationController<>(this, "testmobcontroller", 0, this::predicate));
+    }
+
+    @Override
+    public boolean isPersistenceRequired() {
+        return true;
     }
 
     @Override

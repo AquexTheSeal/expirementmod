@@ -32,4 +32,9 @@ public class BufftestmobEntityRenderer extends GeoEntityRenderer<BufftestmobEnti
     public void renderRecursively(GeoBone bone, MatrixStack matrixStack, IVertexBuilder bufferIn, int packedLightIn, int packedOverlayIn, float red, float green, float blue, float alpha) {
         super.renderRecursively(bone, matrixStack, bufferIn, packedLightIn, packedOverlayIn, red, green, blue, alpha);
     }
+
+    @Override
+    protected float getDeathMaxRotation(BufftestmobEntity entity) {
+        return 0.0F;
+    }
 }

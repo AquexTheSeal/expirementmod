@@ -18,7 +18,7 @@ public class ExpirementmodItems {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, Expirementmod.MOD_ID);
 
     // SWORDS
-    public static final RegistryObject<Item> AQUBLADE = ITEMS.register("aqublade", () -> new ExpirementmodSwordBaseItem(ItemTier.NETHERITE, 5, -2.5f, new EffectInstance(Effects.WITHER, 200, 5), new Item.Properties().rarity(Rarity.EPIC).durability(3540).tab(ItemGroup.TAB_MISC)));
+    public static final RegistryObject<Item> AQUBLADE = ITEMS.register("aqublade", () -> new ExpirementmodSwordBaseItem(ItemTier.NETHERITE, 500, -2.5f, new EffectInstance(Effects.WITHER, 200, 5), new Item.Properties().rarity(Rarity.EPIC).durability(3540).tab(ItemGroup.TAB_MISC)));
 
     // SPAWN EGGS
     public static final RegistryObject<Item> TESTMOB_SPAWN_EGG = ITEMS.register("testmob_spawn_egg", () -> new ExpirementmodSpawnEggItem(ExpirementmodEntities.TESTMOB, 0x000000, 0xFF0000, new Item.Properties().tab(ItemGroup.TAB_MISC)));
