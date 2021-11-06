@@ -1,7 +1,9 @@
 {
   "item.expirementmod.aqublade": "Aqublade",
   "item.expirementmod.sajevius_meat": "Sajevius Meat",
-  "item.expirementmod.testmob_spawn_egg": "Testmob Spawn Egg",
+  "item.expirementmod.testmob_spawn_egg": "Testmob Spawn Egg (Amogus Impostor)",
+  "item.expirementmod.bufftestmob_spawn_egg": "bufftestmob Spawn Egg (The Ultimogus Peak)",
 
-  "entity.expirementmod.testmob": "Testmob"
+  "entity.expirementmod.testmob": "Amogus Impostor",
+  "entity.expirementmod.bufftestmob": "The Ultimogus Peak"
 }

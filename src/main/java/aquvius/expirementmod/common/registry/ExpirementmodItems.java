@@ -22,6 +22,7 @@ public class ExpirementmodItems {
 
     // SPAWN EGGS
     public static final RegistryObject<Item> TESTMOB_SPAWN_EGG = ITEMS.register("testmob_spawn_egg", () -> new ExpirementmodSpawnEggItem(ExpirementmodEntities.TESTMOB, 0x000000, 0xFF0000, new Item.Properties().tab(ItemGroup.TAB_MISC)));
+    public static final RegistryObject<Item> BUFFTESTMOB_SPAWN_EGG = ITEMS.register("bufftestmob_spawn_egg", () -> new ExpirementmodSpawnEggItem(ExpirementmodEntities.BUFFTESTMOB, 0xf76b60, 0xb3ffe5, new Item.Properties().tab(ItemGroup.TAB_MISC)));
 
     // FOOD
     public static final RegistryObject<Item> SAJEVIUS_MEAT = ITEMS.register("sajevius_meat", () -> new Item(new Item.Properties().food(ExpirementmodFoods.SAJEVIUS_MEAT)));
